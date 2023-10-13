@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 1638650907940603903}
   - component: {fileID: 1634604646322859571}
   m_Layer: 0
-  m_Name: Mission
+  m_Name: MissionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
