@@ -1,11 +1,12 @@
 ﻿using System;
+using Containers;
 using Model.Heroes;
 using UnityEngine;
 
 namespace Model.Map
 {
     [Serializable]
-    public struct MissionData
+    public class MissionData
     {
         public Vector2 positionOnScreen;
         public string id;
@@ -15,6 +16,8 @@ namespace Model.Map
         public MissionState state;
 
         public HeroIdIntContainer[] heroesPointsChange;
+        public HeroId[] heroesUnlockOnComplete;
+        public int selectedHeroPointsChange;
 
         public string missionName;
         public string textBeforeMission;
