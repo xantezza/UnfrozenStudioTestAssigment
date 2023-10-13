@@ -5,7 +5,6 @@ using Configs;
 using Containers;
 using Model.Heroes;
 using Model.Map;
-using Unity.VisualScripting;
 
 namespace Model.PersistentProgress
 {
@@ -87,6 +86,8 @@ namespace Model.PersistentProgress
 
             foreach (var heroIdIntContainer in missionData.heroesPointsChange)
             {
+                if (heroIdIntContainer.Int > 0 && !heroesUnlockState[heroIdIntContainer.HeroID]) return;
+                
                 heroesPoints[heroIdIntContainer.HeroID] += heroIdIntContainer.Int;
                 OnHeroPointsUpdate?.Invoke(heroIdIntContainer.HeroID, heroesPoints[heroIdIntContainer.HeroID]);
             }
