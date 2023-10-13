@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb9a9958a2b4e6bb322b63bd9d58186, type: 3}
+  m_Name: HeroConfig
+  m_EditorClassIdentifier: 
+  _heroIdNamesContainers:
+  - HeroID: 0
+    String: "\u042F\u0441\u0442\u0440\u0435\u0431"
+  - HeroID: 1
+    String: "\u0427\u0430\u0439\u043A\u0430"
+  - HeroID: 2
+    String: "\u0421\u043E\u0432\u0443\u0445"
+  - HeroID: 3
+    String: "\u0412\u043E\u0440\u043E\u043D"
+  _heroIdAlliesContainers:
+  - HeroID: 2
+    String: "\u0421\u043E\u0432\u044B"
+  - HeroID: 3
+    String: "\u0412\u043E\u0440\u043E\u043D\u044B"
+  _defaultHero: 0
+  _allyPlaceholder: $Allies$
+  _enemyPlaceholder: $Enemies$
+  _antagonistPlaceholder: $Antagonist$

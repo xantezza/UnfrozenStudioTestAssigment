@@ -7,7 +7,6 @@ namespace Configs
     public class MapConfig : ScriptableObject
     {
         [SerializeField] private MissionData[] _missions;
-
         public MissionData[] Missions => _missions;
     }
 }
