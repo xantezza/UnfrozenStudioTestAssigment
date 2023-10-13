@@ -1,6 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Configs;
+using Infrastructure;
+using Infrastructure.Services;
+using Infrastructure.Services.ConfigProvider;
+using Infrastructure.Services.PersistentProgress;
 using Model.Map;
 using UnityEngine;
 
@@ -10,41 +15,41 @@ namespace View.Map
     {
         public event Action<MissionData> OnMissionDataSelected;
 
-        [SerializeField] private MapConfig _mapConfig;
-        [SerializeField] private MissionButton _missionButtonPrefab;
+        [SerializeField] private MapViewFactory _mapViewFactory;
 
-        private readonly List<MissionButton> _missionButtons = new List<MissionButton>();
-
+        private List<MissionButton> _missionButtons;
         private MissionButton _currentSelectedMission;
+        private bool isInitialized = false;
 
-        private void Awake()
+        private void Start()
         {
-            InitializeMissions();
+            Initialize(
+                ServiceProvider.Get<IConfigProviderService>().Config,
+                ServiceProvider.Get<IPersistentProgressService>()
+            );
         }
 
-        private void InitializeMissions()
+        public void UpdateStates()
         {
-            foreach (var missionData in _mapConfig.Missions)
+            foreach (var missionButton in _missionButtons)
             {
-                var missionButton = Instantiate(
-                    _missionButtonPrefab,
-                    transform
-                );
-
-                missionButton.Init(missionData);
-
-                missionButton.OnClick += OnMissionButtonClicked;
-
-                _missionButtons.Add(missionButton);
+                missionButton.UpdateState();
             }
         }
 
-        private void OnMissionButtonClicked(MissionButton button)
+        private void Initialize(Config config, IPersistentProgressService progressService)
+        {
+            if (isInitialized) return;
+            _missionButtons = _mapViewFactory.InitializeMissionButtons(config, progressService, transform, SelectMissionButton);
+            isInitialized = true;
+        }
+
+        private void SelectMissionButton(MissionButton button)
         {
             if (_currentSelectedMission != null) _currentSelectedMission.SetSelection(false);
             _currentSelectedMission = button;
             _currentSelectedMission.SetSelection(true);
-            
+
             OnMissionDataSelected?.Invoke(button.MissionData);
         }
     }
