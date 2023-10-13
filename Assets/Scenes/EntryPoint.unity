@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2107476714}
   - component: {fileID: 2107476715}
+  - component: {fileID: 2107476716}
   m_Layer: 0
   m_Name: EntryPoint
   m_TagString: Untagged
@@ -164,7 +165,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2107476713}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c188e0e064bcae04cb9a972149a96234, type: 3}
+  m_Script: {fileID: 11500000, guid: e7d9ea447d87d864b9620f7214000dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: 428fa0f5217b0a246badd6abf175f098, type: 2}
+  _coroutineRunnerService: {fileID: 2107476716}
+--- !u!114 &2107476716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107476713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa798e6d93c745dcba3772051b64244c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
