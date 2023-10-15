@@ -6,3 +6,5 @@
 *.geom linguist-detectable=false
 *.frag linguist-detectable=false
 *.comp linguist-detectable=false
+*.shader linguist-detectable=false
+*.cginc linguist-detectable=false 
